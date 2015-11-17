@@ -1,0 +1,7 @@
+import("tcltk")
+importFrom("rgdal", "readGDAL")
+importFrom("vec2dtransf", "AffineTransformation",
+                          "calculateParameters",
+                          "applyTransformation")
+importFrom("sp", "coordinates", "coordinates<-", "over")
+exportPattern("^[[:alpha:]]+")

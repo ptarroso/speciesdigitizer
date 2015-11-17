@@ -1,0 +1,8 @@
+# Files
+build
+*~
+
+# Directories
+examples/
+speciesdigitizer.Rcheck/
+
