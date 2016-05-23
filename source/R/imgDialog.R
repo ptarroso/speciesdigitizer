@@ -15,6 +15,7 @@ function()
 
         assign("image", readGDAL(fileName, silent = TRUE),
                envir = spDigit)
-        
+        assign("mapTrans", NULL, envir = spDigit)
+
     }
 }
