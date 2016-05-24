@@ -1,9 +1,9 @@
 speciesdigitizer <- function() {
     initspDigit()
-    
+
     ## GUI
     tt <- tktoplevel()
-    tkwm.geometry(tt, "300x250+1+1")
+    tkwm.geometry(tt, "300x275+1+1")
     tkwm.title(tt, "Species Digitizer")
     tkwm.resizable(tt, FALSE, FALSE)
 
@@ -28,9 +28,9 @@ speciesdigitizer <- function() {
 
     ## #### Display/Control points #### ##
 
-    cPointsFrame <- tkframe(tt, borderwidth = 2, relief = "ridge", 
+    cPointsFrame <- tkframe(tt, borderwidth = 2, relief = "ridge",
                             pady=1)
-    show.but <- tkbutton(cPointsFrame, text = "Show image", 
+    show.but <- tkbutton(cPointsFrame, text = "Show image",
                          width = 15, command = function() displayMap())
     cp.but <- tkbutton(cPointsFrame, text = "Set Control Points",
                        width = 15, command = function() controlPoints())
@@ -52,7 +52,7 @@ speciesdigitizer <- function() {
     tkgrid(col.but, columnspan = 4)
     tkgrid(colFrame)
 
-    ## #### Final Check #### ## 
+    ## #### Final Check #### ##
 
     spFrame <- tkframe(tt)
     check.but <- tkbutton(spFrame, text = "Final check",
@@ -64,14 +64,14 @@ speciesdigitizer <- function() {
     tkgrid(check.but, add.but, rm.but)
     tkgrid(spFrame, pady = 10)
 
-    ## #### Write file #### ## 
-    
+    ## #### Write file #### ##
+    world.but <- tkcheckbutton(tt, text = "Write georeferenced map?",
+                       variable = spDigit$savemap , onvalue = 1, offvalue = 0)
+
     write.but <- tkbutton(tt, text = "Write file",
                           command = function() writedata())
+    tkgrid(world.but)
     tkgrid(write.but)
-    
+
     tkfocus(tt)
 }
-    
-
-    

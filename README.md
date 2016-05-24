@@ -3,7 +3,7 @@
 The species digitizer package helps the process of georeferencing
 images and digitize species presence. The automated digitalization is
 based on a color, thus, contrasting colors with the background often
-produces the best results. 
+produces the best results.
 
 ## Installation
 
@@ -14,7 +14,7 @@ There are several option to install *species digitizer*:
   users may have to use [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
   to rebuild the package.
 
-- Clone the repository with *git* and build the package in your computer. 
+- Clone the repository with *git* and build the package in your computer.
 
 - Use the *devtools* package in R. Example code:
 
@@ -99,7 +99,8 @@ you need to add more that were not found in the automated process or
 if you need to remove. You have the "+" button to add and the "-"
 button to remove. The process is the same for both: start clicking
 with left mouse button on the miss/extra points and, when finished,
-press the right button. Check the results and write the file if happy!
-
-
-
+press the right button. If you are happy with the results, you can save
+the file with the "write" button. If you want to save the georeferenced
+original map, check the box above the button. This will copy the map with
+the same name as given before with an additional world file that provides
+the geo reference (note: works with tif and jpg).

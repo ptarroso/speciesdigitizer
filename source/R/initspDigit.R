@@ -12,6 +12,7 @@ initspDigit <- function() {
     assign("at", NULL, envir = spDigit)
     assign("rev.at", NULL, envir = spDigit)
     assign("mapTrans", NULL, envir = spDigit)
+    assign("savemap",  tclVar(1), envir = spDigit)
     assign("mapFile",  tclVar("No file selected"), envir = spDigit)
     assign("cpFile", tclVar("No file selected"), envir = spDigit)
     assign("thres", tclVar(20), envir = spDigit)
