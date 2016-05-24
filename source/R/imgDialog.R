@@ -13,6 +13,8 @@ function()
         assign("workdir", dirname(fileName), envir = spDigit)
         cpDefault()
 
+        assign("pathImage", fileName, envir = spDigit)
+
         assign("image", readGDAL(fileName, silent = TRUE),
                envir = spDigit)
         assign("mapTrans", NULL, envir = spDigit)

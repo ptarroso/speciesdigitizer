@@ -2,6 +2,7 @@
 spDigit <- new.env()
 
 initspDigit <- function() {
+    assign("pathImage", NULL, envir = spDigit)
     assign("image", NULL, envir = spDigit)
     assign("workdir", NULL, envir = spDigit)
     assign("refPoints", NULL, envir = spDigit)

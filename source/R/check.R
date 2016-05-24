@@ -3,10 +3,9 @@ function()
 ### Displays the image with a reference grid for a final check.
 {
     if (is.null(spDigit$mapTrans)) transformMap()
-    plot(spDigit$mapTrans, cex=0.5, pch=16, asp=1,
-         col=rgb(spDigit$mapTrans$band1 / 255, 
-                 spDigit$mapTrans$band2 / 255, 
-                 spDigit$mapTrans$band3 / 255))
+    crd <- coordinates(spDigit$mapTrans)
+    col <- rgb(spDigit$mapTrans@data / 255)
+    plot(crd, cex=0.5, pch=16, asp=1, col=col)
 
     spac <- as.double(tclvalue(spDigit$spacing))
     abline(v=seq(-180, 180, spac), col='gray')

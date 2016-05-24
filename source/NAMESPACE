@@ -4,4 +4,9 @@ importFrom("vec2dtransf", "AffineTransformation",
                           "calculateParameters",
                           "applyTransformation")
 importFrom("sp", "coordinates", "coordinates<-", "over")
+importFrom("tools", "file_ext")
+importFrom("grDevices", "dev.list", "dev.new", "rgb")
+importFrom("graphics", "abline", "image", "locator", "par", "plot", "points")
+importFrom("utils", "read.table", "write.table")
+
 exportPattern("^[[:alpha:]]+")
