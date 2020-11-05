@@ -1,7 +1,7 @@
 Package: speciesdigitizer
 Type: Package
 Title: Digitalization of Georeferenced Species Data
-Version: 1.1
+Version: 1.2
 Date: 2015-11-17
 Author: Pedro Tarroso
 Maintainer: Pedro Tarroso <ptarroso@cibio.up.pt>
