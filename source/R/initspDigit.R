@@ -16,5 +16,6 @@ initspDigit <- function() {
     assign("mapFile",  tclVar("No file selected"), envir = spDigit)
     assign("cpFile", tclVar("No file selected"), envir = spDigit)
     assign("thres", tclVar(20), envir = spDigit)
-    assign("spacing", tclVar(1), envir = spDigit)
+    assign("spacingX", tclVar(1), envir = spDigit)
+    assign("spacingY", tclVar(1), envir = spDigit)
 }

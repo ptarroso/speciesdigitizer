@@ -3,7 +3,7 @@ speciesdigitizer <- function() {
 
     ## GUI
     tt <- tktoplevel()
-    tkwm.geometry(tt, "300x275+1+1")
+    tkwm.geometry(tt, "300x325+1+1")
     tkwm.title(tt, "Species Digitizer")
     tkwm.resizable(tt, FALSE, FALSE)
 
@@ -28,28 +28,32 @@ speciesdigitizer <- function() {
 
     ## #### Display/Control points #### ##
 
-    cPointsFrame <- tkframe(tt, borderwidth = 2, relief = "ridge",
-                            pady=1)
-    show.but <- tkbutton(cPointsFrame, text = "Show image",
-                         width = 15, command = function() displayMap())
-    cp.but <- tkbutton(cPointsFrame, text = "Set Control Points",
-                       width = 15, command = function() controlPoints())
+    cPointsFrame <- tkframe(tt, borderwidth = 2, relief = "ridge", pady=1)
+    show.but <- tkbutton(cPointsFrame, text = "Show image", width = 15,
+                         command = function() displayMap())
+    cp.but <- tkbutton(cPointsFrame, text = "Set Control Points", width = 15,
+                       command = function() controlPoints())
     tkgrid(show.but, cp.but)
     tkgrid(cPointsFrame, pady=10)
 
     ## #### Color picker #### ##
 
     colFrame <- tkframe(tt, borderwidth = 2, relief = "ridge")
+    spac.lbl <- tklabel(colFrame, text = "Grid spacing")
+    spacX.lbl <- tklabel(colFrame, text = "X:")
+    spacX.entry <- tkentry(colFrame, width = 3, textvariable = spDigit$spacingX)
+
+    spacY.lbl <- tklabel(colFrame, text = "Y:")
+    spacY.entry <- tkentry(colFrame, width = 3, textvariable = spDigit$spacingY)
+
     thres.lbl <- tklabel(colFrame, text = "Color threshold")
-    thres.entry <- tkentry(colFrame, width = 3,
-                           textvariable = spDigit$thres)
-    spac.lbl <- tklabel(colFrame, text = " Grid spacing")
-    spac.entry <- tkentry(colFrame, width = 3,
-                          textvariable = spDigit$spacing)
+    thres.entry <- tkentry(colFrame, width = 3, textvariable = spDigit$thres)
     col.but <- tkbutton(colFrame, text = "Point color",
-                        command = function() getColor())
-    tkgrid(thres.lbl, thres.entry, spac.lbl, spac.entry)
-    tkgrid(col.but, columnspan = 4)
+                       command = function() getColor())
+
+    tkgrid(spac.lbl, spacX.lbl, spacX.entry, spacY.lbl, spacY.entry)
+    tkgrid(thres.lbl, thres.entry, columnspan=4)
+    tkgrid(col.but, columnspan=5)
     tkgrid(colFrame)
 
     ## #### Final Check #### ##
