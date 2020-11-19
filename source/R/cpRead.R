@@ -12,6 +12,6 @@ function(cpfile)
         tkmessageBox(message = paste("The control points file must have at",
                                      "least 4 reference points."))
     } else {
-        assign("refPoints", cp, envir = spDigit)
+        assign("refPoints", cp[,1:2], envir = spDigit)
     }
 }
