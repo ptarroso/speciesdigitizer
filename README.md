@@ -62,7 +62,7 @@ If a file named "ControlPoints.txt" is found in the same folder as the
 map picture, than it will be loaded automatically. Only the first two columns
 of the control points tables are read and it is expected to be coordinates of
 X position (longitude) and Y position (latitude), by this order. Other columns
-can present but are ignored.
+may be present in the file but are ignored.
 
 Press Control points button to start providing the location of the points
 in the same order as in the ControlPoints.txt file. In the example there
