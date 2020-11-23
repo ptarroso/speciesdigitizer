@@ -7,8 +7,8 @@ function()
     col <- rgb(spDigit$mapTrans@data / 255)
     plot(crd, cex=0.5, pch=16, asp=1, col=col)
 
-    spcX <- as.double(tclvalue(spDigit$spacingX))
-    spcY <- as.double(tclvalue(spDigit$spacingY))
+    spcX <- as.numeric(tclvalue(spDigit$spacingX))
+    spcY <- as.numeric(tclvalue(spDigit$spacingY))
 
     abline(v=seq(-180, 180, spcX), col='gray')
     abline(h=seq(-90, 90, spcY), col='gray')
