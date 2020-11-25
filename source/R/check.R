@@ -3,18 +3,31 @@ function()
 ### Displays the image with a reference grid for a final check.
 {
     if (is.null(spDigit$mapTrans)) transformMap()
-    crd <- coordinates(spDigit$mapTrans)
-    col <- rgb(spDigit$mapTrans@data / 255)
-    plot(crd, cex=0.5, pch=16, asp=1, col=col)
 
+    # check if desired resolution is lower than available
     spcX <- as.numeric(tclvalue(spDigit$spacingX))
     spcY <- as.numeric(tclvalue(spDigit$spacingY))
+    bb <- bbox(spDigit$mapTrans)
+    res <- spDigit$mapTrans@grid@cellsize
 
-    abline(v=seq(-180, 180, spcX), col='gray')
-    abline(h=seq(-90, 90, spcY), col='gray')
-    abline(v=seq(-180, 180, spcX*10), col='red')
-    abline(h=seq(-90, 90, spcY*10), col='red')
-
-    points(spDigit$mapSpPoints, cex=0.5, pch=16, col='green')
-
+    if (spcX < res[1] | spcY < res[2]) {
+      msg <- paste0("The desired resolution (", spcX, ", ", spcY, ") is ",
+                    "lower than the available resolution in the image (",
+                    res[1], ", ", res[2], "). Choose a lower grid spacing or ",
+                    "use an image with more resolution.")
+      answer <- tk_messageBox(type = "ok", message=msg)
+    } else {
+      # Tweak colors for rgb displayMap
+      col <- as.factor(rgb(spDigit$mapTrans@data / 255))
+      rgb <- data.frame(band1=as.numeric(col))
+      coordinates(rgb) <- coordinates(spDigit$mapTrans)
+      gridded(rgb) <- TRUE
+      image(rgb, col=levels(col))
+      bb <- bb - bb%%1
+      abline(v=seq(bb[1,1], bb[1,2], spcX), col='gray')
+      abline(h=seq(bb[2,1], bb[2,2], spcY), col='gray')
+      abline(v=seq(bb[1,1], bb[1,2], spcX*10), col='red')
+      abline(h=seq(bb[2,1], bb[2,2], spcY*10), col='red')
+      points(spDigit$mapSpPoints, cex=0.5, pch=16, col='green')
+  }
 }
