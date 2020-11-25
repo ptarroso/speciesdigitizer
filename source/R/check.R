@@ -24,10 +24,16 @@ function()
       gridded(rgb) <- TRUE
       image(rgb, col=levels(col))
       bb <- bb - bb%%1
+      # Quick&dirty way to find the second grid spacing
+      secgrd <- 10
+      if (diff(bb[1,]) > 360 | diff(bb[2,]) > 180) {
+        secgrd <- 1000
+      }
+      bb2 <- bb - bb%%secgrd
       abline(v=seq(bb[1,1], bb[1,2], spcX), col='gray')
       abline(h=seq(bb[2,1], bb[2,2], spcY), col='gray')
-      abline(v=seq(bb[1,1], bb[1,2], spcX*10), col='red')
-      abline(h=seq(bb[2,1], bb[2,2], spcY*10), col='red')
+      abline(v=seq(bb2[1,1], bb2[1,2], secgrd), col='red')
+      abline(h=seq(bb2[2,1], bb2[2,2], secgrd), col='red')
       points(spDigit$mapSpPoints, cex=0.5, pch=16, col='green')
   }
 }
