@@ -14,7 +14,7 @@ function()
             ## Copy map image with world file.
             baseName <- strsplit(fileName, "\\.")[[1]]
             baseName <- paste(baseName[-length(baseName)], collapse = ".")
-            writeGDAL(spDigit$mapTrans, paste0(baseName, ".tif"))
+            writeRaster(spDigit$mapTrans, paste0(baseName, ".tif"))
         }
     }
 }
