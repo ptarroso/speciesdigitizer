@@ -7,17 +7,16 @@ function()
     displayMap() # elimate points from repeated attempts
     refcol <- locator(1)
     refcol <- as.data.frame(refcol)
-    coordinates(refcol) <- ~x+y
 
-    rcol <- over(refcol, img) 
-   
+    rcol <- unlist(terra::extract(img, refcol, ID=FALSE))
+
     th <- as.integer(tclvalue(spDigit$thres))
-   
-    b1 <- img$band1 >= rcol[[1]]-th & img$band1 <= rcol[[1]]+th 
-    b2 <- img$band2 >= rcol[[2]]-th & img$band2 <= rcol[[2]]+th
-    b3 <- img$band3 >= rcol[[3]]-th & img$band3 <= rcol[[3]]+th
 
-    imgSpPoints <- as.data.frame(coordinates(img)[b1 & b2 & b3,])
+    b1 <- img[][,1] >= rcol[1]-th & img[][,1] <= rcol[1]+th 
+    b2 <- img[][,2] >= rcol[2]-th & img[][,2] <= rcol[2]+th
+    b3 <- img[][,3] >= rcol[3]-th & img[][,3] <= rcol[3]+th
+
+    imgSpPoints <- as.data.frame(terra::crds(img)[b1 & b2 & b3,])
     assign("imgSpPoints", imgSpPoints, envir = spDigit)
     points(imgSpPoints, cex=0.6, pch=16)
     getSpPoints()

@@ -5,8 +5,9 @@ Version: 2.0
 Date: 2023-01-18
 Author: Pedro Tarroso
 Maintainer: Pedro Tarroso <ptarroso@cibio.up.pt>
-Depends: tcltk,terra,vec2dtransf
-Description: Many species data exists in printed maps from atlased or
+Depends: tcltk,terra,vec2dtransf,sf
+Imports: methods
+Description: Many species data exists in printed maps from atlas or
              other sources. These data is often valuable for many
 	     research studies however its digitalization is tedious.
 	     This package helps this process by offering a semi-automated

@@ -9,12 +9,12 @@ function()
     
     #Calculate transformation
     cpoints <- as.data.frame(cbind(mapPoints, refPoints))
-    at <- AffineTransformation(cpoints)
-    calculateParameters(at)
+    at <- vec2dtransf::AffineTransformation(cpoints)
+    vec2dtransf::calculateParameters(at)
     assign("at", at, envir = spDigit)
 
     rev.cpoints <- as.data.frame(cbind(refPoints, mapPoints))
-    rev.at <- AffineTransformation(rev.cpoints)
-    calculateParameters(rev.at)
+    rev.at <- vec2dtransf::AffineTransformation(rev.cpoints)
+    vec2dtransf::calculateParameters(rev.at)
     assign("rev.at", rev.at, envir = spDigit)
 }

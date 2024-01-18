@@ -1,12 +1,14 @@
 import("tcltk")
-importFrom("rgdal", "readGDAL")
+importFrom("terra", "rast", "writeRaster", "extract", "crds", "vect", "res", 
+                    "ext", "plotRGB", "RGB")
 importFrom("vec2dtransf", "AffineTransformation",
                           "calculateParameters",
                           "applyTransformation")
-importFrom("sp", "coordinates", "coordinates<-", "over")
+importFrom("sf", "st_as_sf", "st_coordinates")
 importFrom("tools", "file_ext")
 importFrom("grDevices", "dev.list", "dev.new", "rgb")
 importFrom("graphics", "abline", "image", "locator", "par", "plot", "points")
 importFrom("utils", "read.table", "write.table")
+importFrom("methods", "as")
 
 exportPattern("^[[:alpha:]]+")

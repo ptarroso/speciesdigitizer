@@ -25,8 +25,8 @@ There are several option to install *species digitizer*:
 
 This package depends on other packages:
 - tcltk (found in most R base installtions)
-- sp
-- rgdal
+- sf
+- terra
 - vec2dtransf
 
 ## Usage

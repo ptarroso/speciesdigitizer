@@ -15,8 +15,7 @@ function()
 
         assign("pathImage", fileName, envir = spDigit)
 
-        assign("image", readGDAL(fileName, silent = TRUE),
-               envir = spDigit)
+        assign("image", terra::rast(fileName), envir = spDigit)
         assign("mapTrans", NULL, envir = spDigit)
 
     }
